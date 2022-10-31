@@ -1,6 +1,6 @@
 // Global styling for this template
 body {
-    font-size: 20px;
+    font-size: 16px;
     color: $gray-900;
 }
 
@@ -32,14 +32,16 @@ a {
 }
 
 blockquote {
+   
     font-style: italic;
     color: $gray-600;
+    
 }
 
 .section-heading {
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 700;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 .caption {
