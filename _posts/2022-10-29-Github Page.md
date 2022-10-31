@@ -28,7 +28,7 @@ git commit
 ## Phần 2
 ![Cert](\img\posts\github-page\8210.jpg)
 
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
 
 The Final Frontier
 ------------------
