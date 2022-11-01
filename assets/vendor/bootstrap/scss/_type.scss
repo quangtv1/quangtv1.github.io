@@ -111,7 +111,7 @@ mark,
 // Blockquotes
 .blockquote {
   margin-bottom: $spacer;
-  @include font-size($blockquote-font-size);
+  @include font-size(1.2*$blockquote-font-size);
 }
 
 .blockquote-footer {
