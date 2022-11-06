@@ -6,28 +6,29 @@ date: 2022-10-29 00:45:13 -0400
 background: '/img/posts/01.jpg'
 ---
 
-## Phần 1
-Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.
+### Cai dat zsh, oh my zh
+'''
+sudo apt update
 
-Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.
+sudo apt install -y zsh
 
-What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.
+which zsh
 
-A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.
+sudo chsh -s /usr/bin/zsh
 
-For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-Some basic Git commands are:
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-```
-git status
-git add
-git commit
-```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
-## Phần 2
-![Cert](\img\posts\github-page\8210.jpg)
+vi ~/.zshrc
 
+plugins=(colored-man-pages history jsontools zsh-autosuggestions zsh-syntax-highlighting git)
+
+source ~/.zshrc
+'''
 
 
 The Final Frontier
@@ -39,17 +40,3 @@ There can be no thought of finishing for ‘aiming for the stars.’ Both figura
 
 > The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.
 
-Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.
-
-Reaching for the Stars
-----------------------
-
-As we got further and further away, it \[the Earth\] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.
-
-![Demo Image](https://source.unsplash.com/Mn9Fa_wQH-M/800x450) To go places and do things that have never been done before – that’s what living is all about.
-
-Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.
-
-As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.
-
-Placeholder text by [Space Ipsum](http://spaceipsum.com/). Photographs by [Unsplash](https://unsplash.com/).
