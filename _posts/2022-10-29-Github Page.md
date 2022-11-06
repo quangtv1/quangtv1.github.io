@@ -7,28 +7,28 @@ background: '/img/posts/01.jpg'
 ---
 
 ### Cai dat zsh, oh my zh
-'''
-sudo apt update
+```
+> sudo apt update
 
-sudo apt install -y zsh
+> sudo apt install -y zsh
 
-which zsh
+> which zsh
 
-sudo chsh -s /usr/bin/zsh
+> sudo chsh -s /usr/bin/zsh
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+> sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+> git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+> git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
-vi ~/.zshrc
+> vi ~/.zshrc
 
-plugins=(colored-man-pages history jsontools zsh-autosuggestions zsh-syntax-highlighting git)
+> plugins=(colored-man-pages history jsontools zsh-autosuggestions zsh-syntax-highlighting git)
 
-source ~/.zshrc
-'''
+> source ~/.zshrc
+```
 
 
 The Final Frontier
