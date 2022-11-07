@@ -1,0 +1,114 @@
+---
+layout: post
+title: "Cài đặt Ansible AWX trên Centos 7"
+subtitle: "Các bước cài đặt chi tiết"
+date: 2020-01-26 23:45:13 -0400
+background: '/img/posts/01.jpg'
+---
+
+```bash
+sudo yum install libselinux-python3
+python3 --version
+pip3 --version
+sudo pip3 install --upgrade pip
+sudo pip3 install setuptools
+
+Luu y: Yum ko ho tro python 3
+sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
+
+vi /etc/sysconfig/selinux
+
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+
+sudo pip install docker-compose
+
+yum install git gcc gcc-c++ nodejs gettext device-mapper-persistent-data bzip2 ansible
+
+git clone -b "17.1.0" https://github.com/ansible/awx.git
+
+openssl rand -base64 30
+nyfmVOSqLukjaN7A+xfDA+5KbNK8qoLd4pTRwQsU
+
+cd awx/installer/
+
+vi inventory
+# sed -i 's|admin_password=password|admin_password=Nuce@1234|g' inventory
+# sed -i 's|# awx_official=false|awx_official=true|g' inventory
+# AWX_SECRET=$(openssl rand -base64 30)
+# sed -i "s|secret_key=awxsecret|secret_key=${AWX_SECRET}|g" inventory
+# grep -v '^ *#' inventory | sed '/^$/d'
+
+ansible-playbook -i inventory install.yml
+
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --reload
+
+## extra cmds
+docker ps
+docker logs -f <container-id>
+    for i in $(docker ps -a -q); do docker stop $i;done
+    docker system prune --all
+
+    ```
+
+    Đồng bộ thời gian:
+    [quangtv@ansible ~]$ timedatectl
+    [quangtv@ansible ~]$ sudo yum install ntp
+    [quangtv@ansible ~]$ sudo timedatectl set-timezone Asia/Ho_Chi_Minh
+    [quangtv@ansible ~]$ timedatectl set-ntp on
+    [quangtv@ansible ~]$ date
+
+    Gnome3 Cheat Sheet:
+    https://mpolinowski.github.io/docs/DevOps/Linux/2021-04-12-gnome3-cheat-sheet/2021-04-12
+
+
+    Tài liệu tham khảo:
+    https://gist.github.com/okopop/1ac66c8482fe1c220e3540946507064a
+    https://mpolinowski.github.io/docs/DevOps/Ansible/2021-04-28-ansible-tower-rhel/2021-04-28
+    https://github.com/jmi007/toolkit
+
+    Các bước thực hiện:
+    [quangtv@ansible ~]$ sudo yum update -y
+    [quangtv@ansible ~]$ sudo yum install -y epel-release
+    [quangtv@ansible ~]$ sudo yum install python3 python3-pip python3-devel python3-docker-py python-docker-py
+    libselinux-python3
+    [quangtv@ansible ~]$ python3 --version
+    [quangtv@ansible ~]$ pip3 --version
+    [quangtv@ansible ~]$ sudo pip3 install --upgrade pip
+    [quangtv@ansible ~]$ sudo pip3 install setuptools
+    [quangtv@ansible ~]$ which python3
+    [quangtv@ansible ~]$ which pip3
+    [quangtv@ansible ~]$ sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
+    [quangtv@ansible ~]$ pip --version
+    [quangtv@ansible ~]$ sudo vi /etc/sysconfig/selinux
+    [quangtv@ansible ~]$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+    [quangtv@ansible ~]$ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    [quangtv@ansible ~]$ sudo yum install docker-ce -y
+    [quangtv@ansible ~]$ sudo usermod -aG docker $(whoami)
+    [quangtv@ansible ~]$ sudo systemctl start docker
+    [quangtv@ansible ~]$ sudo systemctl enable docker.service
+    [quangtv@ansible ~]$ sudo pip install docker-compose
+    [quangtv@ansible ~]$ docker version
+    [quangtv@ansible ~]$ docker-compose version
+    [quangtv@ansible ~]$ pip install --upgrade pip
+    [quangtv@ansible ~]$ su -
+
+    [root@ansible ~]# cd /root
+    [root@ansible ~]# git clone -b "17.1.0" https://github.com/ansible/awx.git
+    [root@ansible ~]# yum install git gcc gcc-c++ nodejs gettext device-mapper-persistent-data bzip2 ansible
+    [root@ansible ~]# openssl rand -base64 30
+    [root@ansible ~]# cd awx/installer/
+    [root@ansible ~]# vi inventory
+    [root@ansible ~]# sudo mkdir /opt/awx
+    [root@ansible ~]# firewall-cmd --permanent --add-service=http
+    [root@ansible ~]# firewall-cmd --permanent --add-service=https
+    [root@ansible ~]# firewall-cmd --reload
+    [root@ansible ~]# ansible-playbook -i inventory install.yml
+    [root@ansible ~]# docker ps
+
+
+    Kết quả chạy Image
+
+
+    Kết quả GUI AWX
