@@ -6,109 +6,214 @@ date: 2020-01-26 23:45:13 -0400
 background: '/img/posts/01.jpg'
 ---
 
-```bash
-sudo yum install libselinux-python3
-python3 --version
-pip3 --version
-sudo pip3 install --upgrade pip
-sudo pip3 install setuptools
+<p>```bash</p>
 
-Luu y: Yum ko ho tro python 3
-sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
+<p>sudo yum install libselinux-python3</p>
 
-vi /etc/sysconfig/selinux
+<p>python3 --version</p>
 
-sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+<p>pip3 --version</p>
 
-sudo pip install docker-compose
+<p>sudo pip3 install --upgrade pip</p>
 
-yum install git gcc gcc-c++ nodejs gettext device-mapper-persistent-data bzip2 ansible
+<p>sudo pip3 install setuptools</p>
 
-git clone -b "17.1.0" https://github.com/ansible/awx.git
+<p>&nbsp;</p>
 
-openssl rand -base64 30
-nyfmVOSqLukjaN7A+xfDA+5KbNK8qoLd4pTRwQsU
+<p>Luu y: Yum ko ho tro python 3</p>
 
-cd awx/installer/
+<p>sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1</p>
 
-vi inventory
-# sed -i 's|admin_password=password|admin_password=Nuce@1234|g' inventory
-# sed -i 's|# awx_official=false|awx_official=true|g' inventory
-# AWX_SECRET=$(openssl rand -base64 30)
-# sed -i "s|secret_key=awxsecret|secret_key=${AWX_SECRET}|g" inventory
-# grep -v '^ *#' inventory | sed '/^$/d'
+<p>&nbsp;</p>
 
-ansible-playbook -i inventory install.yml
+<p>vi /etc/sysconfig/selinux</p>
 
-firewall-cmd --permanent --add-service=http
-firewall-cmd --permanent --add-service=https
-firewall-cmd --reload
+<p>&nbsp;</p>
 
-## extra cmds
-docker ps
-docker logs -f <container-id>
-    for i in $(docker ps -a -q); do docker stop $i;done
-    docker system prune --all
+<p>sudo yum install -y yum-utils device-mapper-persistent-data lvm2</p>
 
-    ```
+<p>&nbsp;</p>
 
-    Đồng bộ thời gian:
-    [quangtv@ansible ~]$ timedatectl
-    [quangtv@ansible ~]$ sudo yum install ntp
-    [quangtv@ansible ~]$ sudo timedatectl set-timezone Asia/Ho_Chi_Minh
-    [quangtv@ansible ~]$ timedatectl set-ntp on
-    [quangtv@ansible ~]$ date
+<p>sudo pip install docker-compose</p>
 
-    Gnome3 Cheat Sheet:
-    https://mpolinowski.github.io/docs/DevOps/Linux/2021-04-12-gnome3-cheat-sheet/2021-04-12
+<p>&nbsp;</p>
 
+<p>yum install git gcc gcc-c++ nodejs gettext device-mapper-persistent-data bzip2 ansible</p>
 
-    Tài liệu tham khảo:
-    https://gist.github.com/okopop/1ac66c8482fe1c220e3540946507064a
-    https://mpolinowski.github.io/docs/DevOps/Ansible/2021-04-28-ansible-tower-rhel/2021-04-28
-    https://github.com/jmi007/toolkit
+<p>&nbsp;</p>
 
-    Các bước thực hiện:
-    [quangtv@ansible ~]$ sudo yum update -y
-    [quangtv@ansible ~]$ sudo yum install -y epel-release
-    [quangtv@ansible ~]$ sudo yum install python3 python3-pip python3-devel python3-docker-py python-docker-py
-    libselinux-python3
-    [quangtv@ansible ~]$ python3 --version
-    [quangtv@ansible ~]$ pip3 --version
-    [quangtv@ansible ~]$ sudo pip3 install --upgrade pip
-    [quangtv@ansible ~]$ sudo pip3 install setuptools
-    [quangtv@ansible ~]$ which python3
-    [quangtv@ansible ~]$ which pip3
-    [quangtv@ansible ~]$ sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
-    [quangtv@ansible ~]$ pip --version
-    [quangtv@ansible ~]$ sudo vi /etc/sysconfig/selinux
-    [quangtv@ansible ~]$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-    [quangtv@ansible ~]$ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-    [quangtv@ansible ~]$ sudo yum install docker-ce -y
-    [quangtv@ansible ~]$ sudo usermod -aG docker $(whoami)
-    [quangtv@ansible ~]$ sudo systemctl start docker
-    [quangtv@ansible ~]$ sudo systemctl enable docker.service
-    [quangtv@ansible ~]$ sudo pip install docker-compose
-    [quangtv@ansible ~]$ docker version
-    [quangtv@ansible ~]$ docker-compose version
-    [quangtv@ansible ~]$ pip install --upgrade pip
-    [quangtv@ansible ~]$ su -
+<p>git clone -b &quot;17.1.0&quot; https://github.com/ansible/awx.git</p>
 
-    [root@ansible ~]# cd /root
-    [root@ansible ~]# git clone -b "17.1.0" https://github.com/ansible/awx.git
-    [root@ansible ~]# yum install git gcc gcc-c++ nodejs gettext device-mapper-persistent-data bzip2 ansible
-    [root@ansible ~]# openssl rand -base64 30
-    [root@ansible ~]# cd awx/installer/
-    [root@ansible ~]# vi inventory
-    [root@ansible ~]# sudo mkdir /opt/awx
-    [root@ansible ~]# firewall-cmd --permanent --add-service=http
-    [root@ansible ~]# firewall-cmd --permanent --add-service=https
-    [root@ansible ~]# firewall-cmd --reload
-    [root@ansible ~]# ansible-playbook -i inventory install.yml
-    [root@ansible ~]# docker ps
+<p>&nbsp;</p>
 
+<p>openssl rand -base64 30</p>
 
-    Kết quả chạy Image
+<p>nyfmVOSqLukjaN7A+xfDA+5KbNK8qoLd4pTRwQsU</p>
 
+<p>&nbsp;</p>
 
-    Kết quả GUI AWX
+<p>cd awx/installer/</p>
+
+<p>&nbsp;</p>
+
+<p>vi inventory</p>
+
+<p># sed -i &#39;s|admin_password=password|admin_password=Nuce@1234|g&#39; inventory</p>
+
+<p># sed -i &#39;s|# awx_official=false|awx_official=true|g&#39; inventory</p>
+
+<p># AWX_SECRET=$(openssl rand -base64 30)</p>
+
+<p># sed -i &quot;s|secret_key=awxsecret|secret_key=${AWX_SECRET}|g&quot; inventory</p>
+
+<p># grep -v &#39;^ *#&#39; inventory | sed &#39;/^$/d&#39;</p>
+
+<p>&nbsp;</p>
+
+<p>ansible-playbook -i inventory install.yml</p>
+
+<p>&nbsp;</p>
+
+<p>firewall-cmd --permanent --add-service=http</p>
+
+<p>firewall-cmd --permanent --add-service=https</p>
+
+<p>firewall-cmd --reload</p>
+
+<p>&nbsp;</p>
+
+<p>## extra cmds</p>
+
+<p>docker ps</p>
+
+<p>docker logs -f &lt;container-id&gt;</p>
+
+<p>&nbsp; &nbsp; for i in $(docker ps -a -q); do docker stop $i;done</p>
+
+<p>&nbsp; &nbsp; docker system prune --all</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; ```</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; Đồng bộ thời gian:</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ timedatectl</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo yum install ntp</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo timedatectl set-timezone Asia/Ho_Chi_Minh</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ timedatectl set-ntp on</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ date</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; Gnome3 Cheat Sheet:</p>
+
+<p>&nbsp; &nbsp; https://mpolinowski.github.io/docs/DevOps/Linux/2021-04-12-gnome3-cheat-sheet/2021-04-12</p>
+
+<p><br />
+    &nbsp;</p>
+
+<p>&nbsp; &nbsp; T&agrave;i liệu tham khảo:</p>
+
+<p>&nbsp; &nbsp; https://gist.github.com/okopop/1ac66c8482fe1c220e3540946507064a</p>
+
+<p>&nbsp; &nbsp; https://mpolinowski.github.io/docs/DevOps/Ansible/2021-04-28-ansible-tower-rhel/2021-04-28</p>
+
+<p>&nbsp; &nbsp; https://github.com/jmi007/toolkit</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; C&aacute;c bước thực hiện:</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo yum update -y</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo yum install -y epel-release</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo yum install python3 python3-pip python3-devel python3-docker-py
+    python-docker-py</p>
+
+<p>&nbsp; &nbsp; libselinux-python3</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ python3 --version</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ pip3 --version</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo pip3 install --upgrade pip</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo pip3 install setuptools</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ which python3</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ which pip3</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ pip --version</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo vi /etc/sysconfig/selinux</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo yum-config-manager --add-repo
+    https://download.docker.com/linux/centos/docker-ce.repo</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo yum install docker-ce -y</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo usermod -aG docker $(whoami)</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo systemctl start docker</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo systemctl enable docker.service</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ sudo pip install docker-compose</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ docker version</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ docker-compose version</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ pip install --upgrade pip</p>
+
+<p>&nbsp; &nbsp; [quangtv@ansible ~]$ su -</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# cd /root</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# git clone -b &quot;17.1.0&quot; https://github.com/ansible/awx.git</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# yum install git gcc gcc-c++ nodejs gettext device-mapper-persistent-data bzip2
+    ansible</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# openssl rand -base64 30</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# cd awx/installer/</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# vi inventory</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# sudo mkdir /opt/awx</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# firewall-cmd --permanent --add-service=http</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# firewall-cmd --permanent --add-service=https</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# firewall-cmd --reload</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# ansible-playbook -i inventory install.yml</p>
+
+<p>&nbsp; &nbsp; [root@ansible ~]# docker ps</p>
+
+<p><br />
+    &nbsp;</p>
+
+<p>&nbsp; &nbsp; Kết quả chạy Image</p>
+
+<p><br />
+    &nbsp;</p>
+
+<p>&nbsp; &nbsp; Kết quả GUI AWX</p>
